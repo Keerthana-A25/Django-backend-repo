@@ -7,6 +7,8 @@ from . import serializers
 from .serializers import SubjectDetailsSerializer
 from .models import StudentDetails
 from .serializers import StudentDetailsSerializer
+
+
 # APIView for Users Table
 class usersViewset(APIView):
     # Retrieve user details based on reg_emp_id or all users

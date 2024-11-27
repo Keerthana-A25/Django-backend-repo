@@ -13,9 +13,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from django.core.wsgi import get_wsgi_application
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -87,9 +91,16 @@ DATABASES = {
     }
 }
 
-DATABASES = {
-    'default' : dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+#DATABASES = {
+   # 'default' : dj_database_url.parse(os.environ.get('DATABASE_URL'))
+
+#}
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+if  DATABASE_URL:
+    if DATABASE_URL.startswith('b\''):
+        DATABASE_URL = DATABASE_URL[2:-1]  # Remove the b'' part of the byte string
+    DATABASES['default'] = dj_database_url.parse(DATABASE_URL)
 
 # Password validatio
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
