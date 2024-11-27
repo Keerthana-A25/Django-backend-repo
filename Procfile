@@ -1,1 +1,1 @@
-web gunicorn college_management.wsgi : application
+web gunicorn backend_management.wsgi : application
