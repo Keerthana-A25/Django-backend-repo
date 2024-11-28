@@ -13,7 +13,7 @@ class StudentDetailsSerializer(serializers.ModelSerializer):
 class usersSerializer(serializers.ModelSerializer):
     class Meta:
         model = users
-        fields = '__all__'  # Include all fields from the model
+        fields = ['reg_emp_id', 'email']  # Include only the required fields
         
 class SubjectDetailsSerializer(serializers.ModelSerializer):
     class Meta:
