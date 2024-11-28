@@ -7,6 +7,7 @@ from . import serializers
 from .serializers import SubjectDetailsSerializer
 from .models import StudentDetails
 from .serializers import StudentDetailsSerializer
+from backend_management.models import models
 
 
 # APIView for Users Table
