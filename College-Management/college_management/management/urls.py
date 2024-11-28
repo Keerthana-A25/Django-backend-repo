@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from .models import SubjectDetails
 from .models import StudentDetails
+from backend_management import views
+
 urlpatterns = [
     path('users/', views.usersViewset.as_view()),             # GET all, POST new user
     path('users/<str:reg_emp_id>/', views.usersViewset.as_view()),    # GET, PATCH, DELETE a specific user
